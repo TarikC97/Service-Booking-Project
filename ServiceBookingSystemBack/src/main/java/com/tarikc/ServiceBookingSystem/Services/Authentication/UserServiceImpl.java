@@ -6,6 +6,7 @@ import com.tarikc.ServiceBookingSystem.Entity.User;
 import com.tarikc.ServiceBookingSystem.Enum.UserRole;
 import com.tarikc.ServiceBookingSystem.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,7 +20,7 @@ public class UserServiceImpl implements AuthService {
         user.setLastname(signupRequestDto.getLastname());
         user.setEmail(signupRequestDto.getEmail());
         user.setPhone(signupRequestDto.getPhone());
-        user.setPassword(signupRequestDto.getPassword());
+        user.setPassword(new BCryptPasswordEncoder().encode(signupRequestDto.getPassword()));
         user.setRole(UserRole.CLIENT);
         return  userRepository.save(user).getDto();
     }
@@ -33,7 +34,7 @@ public class UserServiceImpl implements AuthService {
         user.setName(signupRequestDto.getName());
         user.setEmail(signupRequestDto.getEmail());
         user.setPhone(signupRequestDto.getPhone());
-        user.setPassword(signupRequestDto.getPassword());
+        user.setPassword(new BCryptPasswordEncoder().encode(signupRequestDto.getPassword()));
         user.setRole(UserRole.COMPANY);
         return  userRepository.save(user).getDto();
     }

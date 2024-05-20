@@ -16,10 +16,10 @@ public class UserServiceImpl implements AuthService {
     public UserDto signupClient(SignupRequestDto signupRequestDto){
         User user = new User();
         user.setName(signupRequestDto.getName());
-        user.setName(signupRequestDto.getLastname());
-        user.setName(signupRequestDto.getEmail());
-        user.setName(signupRequestDto.getPhone());
-        user.setName(signupRequestDto.getPassword());
+        user.setLastname(signupRequestDto.getLastname());
+        user.setEmail(signupRequestDto.getEmail());
+        user.setPhone(signupRequestDto.getPhone());
+        user.setPassword(signupRequestDto.getPassword());
         user.setRole(UserRole.CLIENT);
         return  userRepository.save(user).getDto();
     }
@@ -31,9 +31,9 @@ public class UserServiceImpl implements AuthService {
     public UserDto signupCompany(SignupRequestDto signupRequestDto){
         User user = new User();
         user.setName(signupRequestDto.getName());
-        user.setName(signupRequestDto.getEmail());
-        user.setName(signupRequestDto.getPhone());
-        user.setName(signupRequestDto.getPassword());
+        user.setEmail(signupRequestDto.getEmail());
+        user.setPhone(signupRequestDto.getPhone());
+        user.setPassword(signupRequestDto.getPassword());
         user.setRole(UserRole.COMPANY);
         return  userRepository.save(user).getDto();
     }

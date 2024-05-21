@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { Route, Router } from '@angular/router';
 import { error } from 'console';
+import { UserStorageService } from '../../services/storage/user-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,11 @@ export class LoginComponent {
                            this.validateForm.get(['password'])!.value)
     .subscribe(res=>{
       console.log(res);
-
+      if(UserStorageService.isClientLogged){
+        this.router.navigateByUrl('client/dashboard')
+      }else if(UserStorageService.isCompanyLogged){
+        this.router.navigateByUrl('company/dashboard')
+      }
     }, error=>{
       this.notification
       .error(

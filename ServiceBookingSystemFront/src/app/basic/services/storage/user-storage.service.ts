@@ -11,16 +11,19 @@ export class UserStorageService {
   constructor() { }
 
   public saveToken(token: string):void{
-    window.localStorage.removeItem(TOKEN);
-    window.localStorage.setItem(TOKEN,token)
+    // if (typeof window !== 'undefined') {}
+      localStorage.removeItem(TOKEN); 
+      localStorage.setItem(TOKEN,token)
+        
   }
   static getToken(): string{
     return localStorage.getItem(TOKEN);
   }
 
   public saveUser(user: string):void{
-    window.localStorage.removeItem(USER);
-    window.localStorage.setItem(USER,JSON.stringify(user));
+      localStorage.removeItem(USER);
+    // if (typeof window !== 'undefined') {}
+      localStorage.setItem(USER,JSON.stringify(user)); 
   }
   static getUser(): any{
     return JSON.parse(localStorage.getItem(USER));
@@ -53,7 +56,7 @@ export class UserStorageService {
     return role == 'COMPANY';
   }
   static signOut():void{
-    window.localStorage.removeItem(TOKEN);
-    window.localStorage.removeItem(USER);
+   localStorage.removeItem(TOKEN);
+   localStorage.removeItem(USER);
   }
 }

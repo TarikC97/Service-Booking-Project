@@ -23,7 +23,7 @@
       </div>
     </nz-header>
 <!--Sidebar for Mobiles-->
-  <nz-sider nzCollapsible nzBreakpoint="lg" [nzCollapsedWidth]="0" class="mobile-sidenav">
+  <!-- <nz-sider nzCollapsible nzBreakpoint="lg" [nzCollapsedWidth]="0" class="mobile-sidenav">
     <ul class="nav-links" nz-menu nzTheme="dark" nzMode="inline">
       <li nz-menu-item>
         <a nz-button nzType="link" routerLink="/client/dashboard" routerLinkActive="active">Dashboard</a>
@@ -35,7 +35,7 @@
         <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">Logout</a>
       </li>
     </ul>  
-  </nz-sider>
+  </nz-sider> -->
   </div>
 
   <div *ngIf="isCompanyLoggedIn">
@@ -51,7 +51,7 @@
         </div>
       </nz-header>
   <!--Sidebar for Mobiles-->
-    <nz-sider nzCollapsible nzBreakpoint="lg" [nzCollapsedWidth]="0" class="mobile-sidenav">
+    <!-- <nz-sider nzCollapsible nzBreakpoint="lg" [nzCollapsedWidth]="0" class="mobile-sidenav">
       <ul class="nav-links" nz-menu nzTheme="dark" nzMode="inline">
         <li nz-menu-item>
           <a nz-button nzType="link" routerLink="/company/dashboard" routerLinkActive="active">Dashboard</a>
@@ -66,6 +66,6 @@
           <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">Logout</a>
         </li>
       </ul>  
-    </nz-sider>
+    </nz-sider> -->
     </div>
     <router-outlet></router-outlet>

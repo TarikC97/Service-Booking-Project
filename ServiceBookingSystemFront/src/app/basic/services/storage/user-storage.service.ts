@@ -11,22 +11,23 @@ export class UserStorageService {
   constructor() { }
 
   public saveToken(token: string):void{
-    // if (typeof window !== 'undefined') {}
-      localStorage.removeItem(TOKEN); 
-      localStorage.setItem(TOKEN,token)
-        
-  }
-  static getToken(): string{
-    return localStorage.getItem(TOKEN);
+
+    localStorage.removeItem(TOKEN);
+    localStorage.setItem(TOKEN, token);     
   }
 
-  public saveUser(user: string):void{
+
+  static getToken(): string{
+    return typeof window !== 'undefined'&&localStorage.getItem(TOKEN);
+  }
+//typeof window !== 'undefined'&&
+//typeof window !== 'undefined'?...:undefined;
+  public saveUser(user:any):void{
       localStorage.removeItem(USER);
-    // if (typeof window !== 'undefined') {}
-      localStorage.setItem(USER,JSON.stringify(user)); 
+      localStorage.setItem(USER, JSON.stringify(user)); 
   }
   static getUser(): any{
-    return JSON.parse(localStorage.getItem(USER));
+    return typeof window !== 'undefined'&&JSON.parse(localStorage.getItem(USER));
   }
 
   static getUserId():string{
@@ -38,18 +39,18 @@ export class UserStorageService {
   static getUserRole():string{
     const user = this.getUser();
     if(user === null){return '';}
-    return user.role;
+    return typeof window !== 'undefined'&&user.role;
   }
 
   static isClientLogged():boolean{
-    if(this.getToken === null){
+    if(this.getToken() === null){
       return false;
     }
     const role: string = this.getUserRole();
     return role == 'CLIENT';
   }
   static isCompanyLogged():boolean{
-    if(this.getToken === null){
+    if(this.getToken() === null){
       return false;
     }
     const role: string = this.getUserRole();

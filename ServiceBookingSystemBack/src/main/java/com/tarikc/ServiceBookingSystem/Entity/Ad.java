@@ -1,5 +1,6 @@
 package com.tarikc.ServiceBookingSystem.Entity;
 
+import com.tarikc.ServiceBookingSystem.Dto.AdDto;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.OnDelete;
@@ -23,4 +24,16 @@ public class Ad {
     @JoinColumn(name = "user_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
+
+    public AdDto getAdDto(){
+        AdDto adDto = new AdDto();
+        adDto.setId(id);
+        adDto.setServiceName(serviceName);
+        adDto.setDescription(description);
+        adDto.setPrice(price);
+        adDto.setCompanyName(user.getName());
+        adDto.setReturnedImg(img);
+        return  adDto;
+    }
+
 }

@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompanyComponent } from './company.component';
 import { CompanyDashboardComponent } from './pages/company-dashboard/company-dashboard.component';
+import { CreateAdComponent } from './pages/create-ad/create-ad.component';
 
 const routes: Routes = [
   { path: '', component: CompanyComponent },
-  { path: 'dashboard', component: CompanyDashboardComponent }
+  { path: 'dashboard', component: CompanyDashboardComponent },
+  { path: 'ad', component: CreateAdComponent }
 ];
 
 @NgModule({

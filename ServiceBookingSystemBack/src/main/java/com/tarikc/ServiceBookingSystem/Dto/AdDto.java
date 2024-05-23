@@ -3,6 +3,7 @@ package com.tarikc.ServiceBookingSystem.Dto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Lob;
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 @Data
 public class AdDto {
@@ -11,8 +12,8 @@ public class AdDto {
     private String serviceName;
     private String description;
     private Double price;
-    private byte[] img;
+    private MultipartFile img;
+    private byte[] returnedImg;
     private  Long userId;
     private String companyName;
-
 }

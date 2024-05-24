@@ -16,6 +16,7 @@ import { DemoNgZorroAntdModule } from './DemoNgZorroAntdModule';
 import { SignupClientComponent } from './basic/components/signup-client/signup-client.component';
 import { SignupCompanyComponent } from './basic/components/signup-company/signup-company.component';
 import { CreateAdComponent } from './company/pages/create-ad/create-ad.component';
+import { AllAdsComponent } from './company/pages/all-ads/all-ads.component';
 
 registerLocaleData(en);
 
@@ -26,7 +27,8 @@ registerLocaleData(en);
     SignupComponent,
     SignupClientComponent,
     SignupCompanyComponent,
-    CreateAdComponent
+    CreateAdComponent,
+    AllAdsComponent
   ],
   imports: [
     BrowserModule,

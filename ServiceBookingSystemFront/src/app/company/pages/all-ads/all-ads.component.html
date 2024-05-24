@@ -1,0 +1,28 @@
+<div class="bg">
+
+    <div style="margin-top: 10px;" class="child" *ngFor="let ad of ads">
+        <div nz-row>
+            <div nz-col nzSpan="8">
+                <img class="profile"  [src]="updateImg(ad.returnedImg)"
+                    style="height: 150px ; width: 200px; border-radius: 10px;" /> 
+            </div>
+            <div nz-col nzSpan="16">
+                <h2 style="cursor: pointer; color: rgb(0, 89, 255);">
+                    {{ad.serviceName}}
+                </h2>
+                <hr>
+                <h5>
+                    Price: <b>{{ad.price}}</b>
+                </h5>
+                <h5>
+                    Description: <b>{{ad.description}}</b>
+                </h5>
+                <hr>
+                <div style="float: right;">
+                    <button nzSize="small" nz-button nzType="primary" routerLink="/company/ad/{{ad.id}}">Update</button>
+                    <button nzSize="small" nz-button nzType="primary" style="margin-left: 10px;" nzDanger>Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

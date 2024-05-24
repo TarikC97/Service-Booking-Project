@@ -26,5 +26,9 @@ public class CompanyController {
             return  ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+    @GetMapping("/ads/{userId}")
+    public  ResponseEntity<?> getAllAdsById(@PathVariable Long userId){
+        return ResponseEntity.ok(companyService.getAllAds(userId));
+    }
 
 }

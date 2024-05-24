@@ -45,7 +45,7 @@ public class JwtUtil {
                 .parseClaimsJws(token);
     }
     public <T> T extractClaim(String token, Function<Claims,T> claimsResolver){
-        final  Claims claims = (Claims) extractAllClaims(token);
+        final  Claims claims = extractAllClaims(token).getBody();
         return  claimsResolver.apply(claims);
     }
     public Date extractExpiration(String token){

@@ -26,4 +26,12 @@ export class CompanyService {
       'Bearer '+ UserStorageService.getToken()
     )
   }
+
+  getAds():Observable<any>{
+    const userId = UserStorageService.getUserId();
+    return this.http.get(BASIC_URL+`api/company/ads/${userId}`,{
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
 }

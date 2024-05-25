@@ -42,4 +42,25 @@ public class CompanyController {
         }
     }
 
+    @PutMapping("/ad/{adId}")
+    public ResponseEntity<?> updateAd(@PathVariable Long adId,@ModelAttribute AdDto adDto) throws IOException {
+        boolean succes = companyService.updateAd(adId,adDto);
+        if(succes){
+            return  ResponseEntity.status(HttpStatus.OK).build();
+        }
+        else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+    @DeleteMapping("/ad/{adId}")
+    public  ResponseEntity<?> deleteAd(@PathVariable Long adId){
+        boolean success = companyService.deleteAd(adId);
+        if(success){
+            return  ResponseEntity.status(HttpStatus.OK).build();
+        }
+        else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
 }

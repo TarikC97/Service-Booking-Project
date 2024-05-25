@@ -39,5 +39,16 @@ export class CompanyService {
       headers: this.createAuthorizationHeader()
     })
   }
+  updateAd(adId:any,adDto:any):Observable<any>{
+    return this.http.put(BASIC_URL+`api/company/ad/${adId}`,adDto,{
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
+  deleteAd(adId:any):Observable<any>{
+    return this.http.delete(BASIC_URL+`api/company/ad/${adId}`,{
+      headers: this.createAuthorizationHeader()
+    })
+  }
 
 }

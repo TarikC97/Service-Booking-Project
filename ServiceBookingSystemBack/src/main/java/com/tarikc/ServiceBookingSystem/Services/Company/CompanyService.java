@@ -10,4 +10,7 @@ public interface CompanyService {
     boolean postAd(Long userId, AdDto adDto) throws IOException;
     List<AdDto> getAllAds(Long userId);
     AdDto getAdById(Long adId);
+    boolean updateAd(Long adId,AdDto adDto) throws IOException;
+    boolean deleteAd(Long adId);
+
 }

@@ -30,4 +30,16 @@ export class ClientService {
       'Bearer '+ UserStorageService.getToken()
     )
   }
+
+  getAdDetailsByAdId(adId:any):Observable<any>{
+    return this.http.get(BASIC_URL+`api/client/ad/${adId}`,{
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
+  bookService(bookDto:any):Observable<any>{
+    return this.http.post(BASIC_URL+`api/client/book-service`,bookDto,{
+      headers: this.createAuthorizationHeader()
+    })
+  }
 }

@@ -51,4 +51,11 @@ export class CompanyService {
     })
   }
 
+ getAllAdBookings():Observable<any>{
+  const companyId = UserStorageService.getUserId();
+    return this.http.get(BASIC_URL+`api/company/bookings/${companyId}`,{
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
 }

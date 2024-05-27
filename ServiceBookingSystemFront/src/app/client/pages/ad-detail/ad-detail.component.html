@@ -29,9 +29,20 @@
                     <form nz-form [formGroup]="validateForm">
                         <div nz-row>
                             <div nz-col nzSpan="24">
+                                <nz-form-item>
+                                    <nz-form-label [nzSpan]="24" nzFor="bookDate">Date of Booking</nz-form-label>
+                                    <nz-form-control [nzSpan]="24">
+                                        <nz-date-picker formControlName="bookDate" 
+                                                        name="bookDate" id="bookDate">
+                                                    </nz-date-picker> 
+                                    </nz-form-control>
+                                </nz-form-item>
                                 
                             </div>
                         </div>
+                        <button nz-button [nzType]="'primary'" [disabled]="validateForm.invalid" (click)="bookService()">
+                            Book
+                        </button>
                     </form>
                 </div>
             </div>

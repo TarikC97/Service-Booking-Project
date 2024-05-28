@@ -11,4 +11,5 @@ public interface ClientService {
     List<AdDto> SearchAdByName(String name);
     boolean bookService(ReservationDto reservationDto);
     AdDetailsForClientDto getAdDetailsByAdId(Long adId);
+    List<ReservationDto> getAllBookingsByUserId(Long userId);
 }

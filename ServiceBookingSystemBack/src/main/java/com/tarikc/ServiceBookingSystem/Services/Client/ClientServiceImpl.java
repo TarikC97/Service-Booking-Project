@@ -3,6 +3,7 @@ package com.tarikc.ServiceBookingSystem.Services.Client;
 import com.tarikc.ServiceBookingSystem.Dto.AdDetailsForClientDto;
 import com.tarikc.ServiceBookingSystem.Dto.AdDto;
 import com.tarikc.ServiceBookingSystem.Dto.ReservationDto;
+import com.tarikc.ServiceBookingSystem.Dto.ReviewDto;
 import com.tarikc.ServiceBookingSystem.Entity.Ad;
 import com.tarikc.ServiceBookingSystem.Entity.Reservation;
 import com.tarikc.ServiceBookingSystem.Entity.User;
@@ -65,6 +66,12 @@ public class ClientServiceImpl implements ClientService {
     }
     public List<ReservationDto> getAllBookingsByUserId(Long userId){
         return  reservationRepository.findAllByUserId(userId).stream().map(Reservation::getReservationDto).collect(Collectors.toList());
+    }
+
+    public Boolean giveReview(ReviewDto reviewDto){
+        Optional<User> optionalUser = userRepository.findById(reviewDto.getUserId());
+        Optional<Reservation> optionalReservation = reservationRepository.findById(reviewDto.getBookId());
+        
     }
 
 }

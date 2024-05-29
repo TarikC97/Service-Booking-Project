@@ -67,6 +67,8 @@ public class ClientServiceImpl implements ClientService {
         AdDetailsForClientDto adDetailsForClientDto = new AdDetailsForClientDto();
         if(optionalAd.isPresent()){
             adDetailsForClientDto.setAdDto(optionalAd.get().getAdDto());
+            List<Review> reviewList = reviewRepository.findAllByAdId(adId);
+            adDetailsForClientDto.setReviewDtoList(reviewList.stream().map(Review::getDto).collect(Collectors.toList()));
         }
         return  adDetailsForClientDto;
     }

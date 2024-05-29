@@ -1,5 +1,6 @@
 package com.tarikc.ServiceBookingSystem.Entity;
 
+import com.tarikc.ServiceBookingSystem.Dto.ReviewDto;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.OnDelete;
@@ -29,4 +30,19 @@ public class Review {
     @JoinColumn(name = "ad_id",nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Ad ad;
+
+    public ReviewDto getDto(){
+        ReviewDto reviewDto = new ReviewDto();
+        reviewDto.setId(id);
+        reviewDto.setReview(review);
+        reviewDto.setRating(rating);
+        reviewDto.setReviewDate(reviewDate);
+        reviewDto.setUserId(user.getId());
+        reviewDto.setClientName(user.getName());
+        reviewDto.setAdId(ad.getId());
+        reviewDto.setServiceName(ad.getServiceName());
+
+        return reviewDto;
+    }
+
 }

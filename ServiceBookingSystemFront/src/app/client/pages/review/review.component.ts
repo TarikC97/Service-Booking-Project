@@ -13,7 +13,7 @@ import { error } from 'console';
 })
 export class ReviewComponent {
 
-  bookId:number = this.activatedRoute.snapshot.params['id'];
+  bookId:number = this.activatedRoute.snapshot.params['Id'];
   validateForm!: FormGroup;
 
   constructor(private clientService: ClientService,
